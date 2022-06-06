@@ -45,14 +45,15 @@ public class LogInTest {
 
   @Test
   public void questionTest() {
+    driver.get(ConfProperties.getProperty("loginpage"));
     question.clickToTopQuestion();
     question.clickToQuestion();
     Assert.assertEquals("Почему уважать себя сложно, но нужно?", question.getQuestionName());
   }
 
-  @Ignore
   @Test
   public void likeTest() {
+    driver.get(ConfProperties.getProperty("loginpage"));
     question.clickToTopQuestion();
     question.clickToQuestionWhatILike();
     question.clickToLike();
@@ -62,16 +63,27 @@ public class LogInTest {
     question.clickToLike();
     int post = Integer.parseInt(question.whoLikesSee());
     Assert.assertEquals(1, Math.abs(prev - post));
-    //System.out.println(question.whoLikesSee());
-    //question.setCheck1();
-//    question.setNotLike();
-//    System.out.println(question.whoLikesSee());
-//    question.setCheck2();
-    //question.setNotLike();
   }
 
-//  @AfterClass
-//    public static void tearDown() {
-//      driver.quit();
-//    }
+  @Test
+  public void askQuestion() {
+    question.clickAskQuestion();
+    question.inputQuestionText("Как писать функциональные тесты на Java при использовании Selenium ?");
+    question.inputAddInfo("Я использую веб драйвер для гугл хром");
+    //question.setCategory();
+    //question.setClickToCategory();
+    //question.setSubCategory();
+    //question.setClickToSubCategory();
+    question.clickButtonToPost();
+  }
+
+  @Test
+  public void ansQuestion() {
+    //driver.get(ConfProperties.getProperty("loginpage"));
+    question.clickToTopQuestion();
+  }
+  @AfterClass
+    public static void tearDown() {
+      driver.quit();
+    }
 }

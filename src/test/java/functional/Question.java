@@ -35,6 +35,69 @@ public class Question {
   @FindBy(css = ".AhoWl")
   private WebElement whoLikes;
 
+  @FindBy(css = ".iy9DJ:nth-child(1) > .v5Cxe")
+  private WebElement goBack;
+
+  @FindBy(xpath = "//div[2]/a/div")
+  private WebElement askQuestion;
+
+  @FindBy(xpath = "//textarea[@id='question_text']")
+  private WebElement questionText;
+
+  @FindBy(xpath = "//div[@id='question_additional']/div/div")
+  private WebElement addInfoQuestion;
+
+  @FindBy(css = ".icAW3")
+  private WebElement buttonQuestion;
+
+  @FindBy(xpath = "//span[contains(.,'Выберите категорию')]")
+  private WebElement category;
+
+  @FindBy(xpath = "//div[12]/div/span")
+  private WebElement clickToCategory;
+
+  @FindBy(xpath = "//span[contains(.,'Выберите подкатегорию')]")
+  private WebElement subCategory;
+
+  @FindBy(css = ".IgotB:nth-child(6) .u2mHx")
+  private WebElement clickToSubCategory;
+
+  public void setCategory() {
+    category.click();
+  }
+
+  public void setClickToCategory() {
+    category.click();
+  }
+
+  public void setSubCategory() {
+    category.click();
+  }
+
+  public void setClickToSubCategory() {
+    category.click();
+  }
+
+  public void clickButtonToPost() {
+    buttonQuestion.click();
+  }
+
+  public void inputQuestionText(String text) {
+    questionText.sendKeys(text);
+  }
+
+  public void inputAddInfo(String text) {
+    addInfoQuestion.sendKeys(text);
+  }
+
+  public void clickAskQuestion() {
+    askQuestion.click();
+  }
+
+  public void setGoBack() {
+    goBack.click();
+  }
+
   public void setCheck2() {
     check2.click();
   }
